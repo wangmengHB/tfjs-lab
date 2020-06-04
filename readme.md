@@ -1,2 +1,2 @@
-# tfjs-model-blazeface
+# tfjs-lab
 

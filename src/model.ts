@@ -64,8 +64,8 @@ export class ImageScoreModel {
   }
 
 
-  async estimateScore2(
-    input: tf.Tensor3D|ImageData|HTMLVideoElement|HTMLImageElement| HTMLCanvasElement,
+  async estimateScore(
+    input: ImageData|HTMLVideoElement|HTMLImageElement| HTMLCanvasElement,
   ) {
     const imageResize = [IMAGE_SIZE, IMAGE_SIZE];
     const processedImg = imgToTensor(input, imageResize);
@@ -77,7 +77,7 @@ export class ImageScoreModel {
   }
 
   
-  async estimateScore(
+  async estimateScore2(
     input: tf.Tensor3D|ImageData|HTMLVideoElement|HTMLImageElement| HTMLCanvasElement,
   ) {
 

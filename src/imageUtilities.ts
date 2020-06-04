@@ -110,7 +110,10 @@ const flipImage = (img: any) => {
 }
 
 // Static Method: image to tf tensor
-function imgToTensor(input: any, size: any = null) {
+function imgToTensor(
+  input: ImageData|HTMLVideoElement|HTMLImageElement| HTMLCanvasElement, 
+  size: any = null
+) {
   return tf.tidy(() => {
     let img = tf.browser.fromPixels(input);
     if (size) {

@@ -37,7 +37,7 @@ const renderPrediction = async () => {
   
 
   console.time('predict');
-  const score = await model.estimateScore2(video);
+  const score = await model.estimateScore(video);
   const output = document.getElementById('output');
   output.innerText = score;
   console.timeEnd('predict');
