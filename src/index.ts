@@ -1,13 +1,12 @@
 // import * as tf from '@tensorflow/tfjs-core';
 // import * as tfjsWasm from '@tensorflow/tfjs-backend-wasm';
 // import * as tfconv from '@tensorflow/tfjs-converter';
-import * as imagescore from './model.ts';
+import * as imagescore from './model';
 import "core-js";
 import * as tf from '@tensorflow/tfjs';
 
 // tfjsWasm.setWasmPath('https://0.0.0.0:8081/tfjs-backend-wasm.wasm');
 
-tf.setBackend('webgl')
 
 
 let model: any, ctx, videoWidth, videoHeight, video: any, canvas;
@@ -37,14 +36,8 @@ async function setupCamera() {
 const renderPrediction = async () => {
   
 
-  // console.time('score prediction');
-  const returnTensors = false;
-  const flipHorizontal = true;
-  const annotateBoxes = true;
-
   console.time('predict');
-  const score = await model.estimateScore(
-    video, returnTensors, flipHorizontal, annotateBoxes);
+  const score = await model.estimateScore2(video);
   const output = document.getElementById('output');
   output.innerText = score;
   console.timeEnd('predict');
