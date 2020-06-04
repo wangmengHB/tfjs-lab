@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const DEMO = 'demo2';
+const DEMO = 'dist';
 
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
   ],
   context: path.resolve(__dirname),
   entry: {
-    'demo': path.resolve(__dirname, `./${DEMO}/index.js`),
+    'demo': path.resolve(__dirname, `./src/index.ts`),
   },
   output: {
       path: path.resolve(__dirname, './dist'),
@@ -47,7 +47,6 @@ module.exports = {
         {
           test: /\.(js|jsx)$/,
           include: [
-            path.resolve(__dirname, `./${DEMO}`),
             path.resolve(__dirname, './src')       
           ],
           use: [
@@ -59,7 +58,6 @@ module.exports = {
         {
           test: /\.(ts|tsx)$/,
           include: [
-            path.resolve(__dirname, `./${DEMO}`),
             path.resolve(__dirname, './src'),
           ],
           use: [
